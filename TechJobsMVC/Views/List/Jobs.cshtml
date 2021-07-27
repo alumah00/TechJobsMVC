@@ -1,10 +1,49 @@
-﻿<div class="container body-content">
+﻿@using TechJobsMVC.Data
+<div class="container body-content">
 
     <h1>@ViewBag.title</h1>
 
-    @{
-        //TODO #1: Use a loop to display job results in a table.
-    }
+    @*//TODO #1: Use a loop to display job results in a table.*@
 
+    <table class="job-listing">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Employer</th>
+            <th>Location</th>
+            <th>Position Type</th>
+            <th>Core Competency</th>
+        </tr>
+        
+        @foreach (Job job in ViewBag.jobs)
+        {
+            <tr>
+                <td>@job.Id</td>
+                <td>@job.Name</td>
+                <td>@job.Employer</td>
+                <td>@job.Location</td>
+                <td>@job.PositionType</td>
+                <td>@job.CoreCompetency</td>
+            </tr>
+        }
+
+    </table>
 
 </div>
+
+
+@*<table>
+        <tbody>
+            @foreach (Job job in ViewBag.jobs)
+            {
+                <tr>
+                    ID: @job.Id <br />
+                    Name: @job.Name<br />
+                    Employer: @job.Employer<br />
+                    Location: @job.Location<br />
+                    Position Type: @job.PositionType<br />
+                    Skill: @job.CoreCompetency<br />
+                </tr>
+            }
+        </tbody>
+    </table>*@

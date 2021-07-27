@@ -15,7 +15,13 @@
             //TODO #2: Complete the View Jobs By Category Table
         }
 
-        <td></td> @* Feel free to remove or modify this element if necessary. *@
+        <td>
+            <a asp-controller="List"
+               asp-action="Jobs"
+               asp-route-column="all">
+                Find All
+            </a>
+        </td> 
         @foreach (var category in ViewBag.tableChoices)
         {
             <td>
@@ -23,11 +29,16 @@
                     @foreach (var item in category.Value)
                     {
                         <li>
-                            <a asp-controller="List" asp-action="Jobs" asp-route-column="@category.Key" asp-route-value="@item">@item</a>
+                            <a asp-controller="List"
+                               asp-action="Jobs"
+                               asp-route-column="@category.Key"
+                               asp-route-value="@item">
+                                @item
+                            </a>
                         </li>
                     }
                 </ul>
             </td>
         }
     </tr>
-        </table>
+</table>
